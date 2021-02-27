@@ -1,0 +1,25 @@
+{
+  
+    "overview": [
+      {
+        "name": "ORDERS",
+        "value": "33",
+        "sequence": 1
+      },
+      {
+        "name": "REVENUE",
+        "value": "₹2,918",
+        "sequence": 2
+      },
+      {
+        "name": "Store Views",
+        "value": "301",
+        "sequence": 3
+      },
+      {
+        "name": "Product Views",
+        "value": "19,121",
+        "sequence": 4
+      }
+    ]
+}
