@@ -19,9 +19,15 @@ extension Color {
     static let warmGrey = Color.init(Constants.Colors.warmGrey)
     static let whiteBackground = Color.init(Constants.Colors.white)
     static let whiteTwo = Color.init(Constants.Colors.whiteTwo)
-
-    
-    
     static let defaultWhite = Color.white
+
+   static func paymentStatusColor(for status :OrderPaymentStatus) -> Color {
+        
+        if status == .Cod {
+            return .dustyOrange
+        }
+        return .cherryRed
+    }
+    
 
 }

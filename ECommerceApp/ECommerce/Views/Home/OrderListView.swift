@@ -31,12 +31,13 @@ struct OrderListView: View {
                     
                     Image.init(Constants.Images.rightArrow)
                 }
-            }.padding(16)
+            }
             
-            orderTypeListView
-            .padding(.leading, 16)
-
-
+            OrderTypeListView()
+            .padding(.top, 16)
+            
+            OrdersListView()
+            .padding(.top, 16)
         }
     }
 }
@@ -44,27 +45,40 @@ struct OrderListView: View {
 
 extension OrderListView {
     
-    var orderTypeListView: some View {
-        ScrollView() {
-
-        HStack {
-            
-                if let pendingOrders = orders?.pendingOrders, pendingOrders.count > 0 {
-                    OrderTypeCell.init(name: Constants.Strings.pending, count: "129", isSelected: false)
-                }
-                
-                if let acceptedOrders = orders?.acceptedOrders, acceptedOrders.count > 0 {
-                    OrderTypeCell.init(name: Constants.Strings.accepted, count: "13", isSelected: true)
-                }
-                
-                if let shippedOrders = orders?.shippedOrders, shippedOrders.count > 0 {
-                    OrderTypeCell.init(name: Constants.Strings.shipped, count: "22", isSelected: false)
-                }
-                
-            }
-            
-        }
+    fileprivate func OrderTypeListView() -> some View {
         
+        return
+            ScrollView(.horizontal, showsIndicators: false, content: {
+                HStack(spacing: 16) {
+                    
+                    if let pendingOrders = orders?.pendingOrders, pendingOrders.count > 0 {
+                        OrderTypeCell.init(name: Constants.Strings.pending, count: "129", isSelected: false)
+                    }
+                    
+                    if let acceptedOrders = orders?.acceptedOrders, acceptedOrders.count > 0 {
+                        OrderTypeCell.init(name: Constants.Strings.accepted, count: "13", isSelected: true)
+                    }
+                    
+                    if let shippedOrders = orders?.shippedOrders, shippedOrders.count > 0 {
+                        OrderTypeCell.init(name: Constants.Strings.shipped, count: "22", isSelected: false)
+                    }
+                }
+            })
+    }
+    
+    
+    fileprivate func OrdersListView() -> some View {
+        
+        return
+            ScrollView(.vertical, showsIndicators: false, content: {
+                VStack(spacing: 12) {
+                   
+                    if let orders = orders?.acceptedOrders, orders.count > 0 {
+                        ForEach(orders, content: OrderCell.init(order: ))
+                    }
+            
+                }
+            })
     }
 }
     

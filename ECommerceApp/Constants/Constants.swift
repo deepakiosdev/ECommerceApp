@@ -25,6 +25,9 @@ struct Constants {
         static let pending = "Pending"
         static let accepted = "Accepted"
         static let shipped = "Shipped"
+        static let shipOrder = "Ship order"
+        static let cancelOrder = "Cancel order"
+
     }
     
     struct Images {

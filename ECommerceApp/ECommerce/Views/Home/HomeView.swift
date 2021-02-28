@@ -19,19 +19,15 @@ struct HomeView: View {
             .overlay(
                 VStack() {
                     SharingView.init(sharing: viewModel.sharing)
-                    .padding(.all, 16)
-                   // .frame(width: geometry.size.width, height: geometry.size.height * 0.2)
                     ScrollView () {
                         OverviewView.init(overview: viewModel.overview)
-                        .padding(.all, 16)
-
+                        .padding(.top, 16)
 
                         OrderListView.init(orders: viewModel.orders)
-                        //.padding(.all, 16)
+                            .padding(.top, 32)
                     }
-                    //.padding(.all, 16)
 
-                }
+                }.padding(16)
 
             )
         }

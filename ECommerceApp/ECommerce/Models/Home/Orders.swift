@@ -8,6 +8,18 @@
 import Foundation
 
 
+enum OrderStatus: String {
+    case Pending = "Pending"
+    case Accepted = "Accepted"
+    case Shipped = "Shipped"
+}
+
+
+enum OrderPaymentStatus: String {
+    case Cod = "COD"
+    case Paid = "PAID"
+}
+
 struct Orders: Codable {
     
     let pendingOrders: [Order]

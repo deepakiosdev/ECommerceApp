@@ -29,7 +29,7 @@ struct OverviewCell: View {
             
         }.frame(minWidth: 100, maxWidth: .infinity, minHeight: 64, maxHeight: .infinity, alignment: .leading)
         .padding(.all, 16)
-        .background(Color.white)
+        .background(Color.defaultWhite)
         .cornerRadius(6)
     }
     
