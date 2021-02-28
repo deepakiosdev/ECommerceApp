@@ -13,23 +13,37 @@ struct HomeView: View {
     
     var body: some View {
         GeometryReader { geometry in
+            
+            Color.whiteBackground
+                .ignoresSafeArea(edges: .top)
+                .overlay(
+                    VStack() {
+                        
+                        ZStack() {
+                            HeaderView()
+                                .background(Color.niceBlue)
+                                .frame(width: geometry.size.width, height: Constants.headerHeight)
+                            
+                            
+                            SharingView.init(sharing: viewModel.sharing)
+                                .padding()
+                                .offset(y: Constants.headerHeight/2 )
+                            
+                        }
+                        .offset(y: -Constants.headerHeight/2)
+                        
+                        
+                        ScrollView() {
+                            OverviewView.init(overview: viewModel.overview)
+                                .padding(.top, 0)
+                            OrderListView.init(orders: viewModel.orders)
+                                .padding(.top, 32)
+                        }.padding(16)
+                        .offset(y: -32)
 
-        Color.whiteBackground
-            .ignoresSafeArea(.all)
-            .overlay(
-                VStack() {
-                    SharingView.init(sharing: viewModel.sharing)
-                    ScrollView () {
-                        OverviewView.init(overview: viewModel.overview)
-                        .padding(.top, 16)
-
-                        OrderListView.init(orders: viewModel.orders)
-                            .padding(.top, 32)
-                    }
-
-                }.padding(16)
-
-            )
+                    }.padding(16)
+                    
+                )
         }
     }
     

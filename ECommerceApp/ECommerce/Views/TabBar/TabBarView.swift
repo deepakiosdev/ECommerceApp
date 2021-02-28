@@ -17,18 +17,9 @@ struct TabBarView: View {
     
     
     var body: some View {
-        GeometryReader { geometry in
-            Color.niceBlue
-                .ignoresSafeArea(.all)
-                .overlay(
-                    VStack {
-                        HeaderView()
-                            .frame(width: geometry.size.width, height: geometry.size.height * 0.15)
-                        
-                       tabBarView
-                    })
-        }
-        
+        Color.niceBlue
+            .ignoresSafeArea(.all)
+            .overlay(tabBarView )
     }
 }
 

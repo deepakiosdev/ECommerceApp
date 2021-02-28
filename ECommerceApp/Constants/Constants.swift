@@ -11,6 +11,8 @@ import SwiftUI
 
 struct Constants {
 
+    static let headerHeight: CGFloat = 200
+
     struct Strings {
         static let home = "Home"
         static let account = "Account"
@@ -29,6 +31,7 @@ struct Constants {
         static let cancelOrder = "Cancel order"
 
     }
+
     
     struct Images {
         static let iconTabbarHomeActive = "iconsTabbarHomeActive"
