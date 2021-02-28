@@ -22,13 +22,13 @@ struct OrderCell: View {
              HStack() {
                 Text(order.orderId)
                      .font(.custom(Constants.AppFont.mediumFont, size: 14))
-                     .foregroundColor(Color.darkBlack)
+                     .foregroundColor(.darkBlack)
                  
                  Spacer()
                  
                 Text(order.dateAndTime)
                      .font(.custom(Constants.AppFont.regularFont, size: 13))
-                     .foregroundColor(Color.warmGrey)
+                     .foregroundColor(.warmGrey)
 
              }
             
@@ -39,11 +39,11 @@ struct OrderCell: View {
                 VStack(alignment: .leading) {
                    Text("\(order.quanitity) ITEM")
                         .font(.custom(Constants.AppFont.regularFont, size: 13))
-                        .foregroundColor(Color.warmGrey)
+                        .foregroundColor(.warmGrey)
                     
                    Text(order.price)
                         .font(.custom(Constants.AppFont.mediumFont, size: 15))
-                        .foregroundColor(Color.niceBlue)
+                        .foregroundColor(.niceBlue)
 
                 }
                 
@@ -71,7 +71,7 @@ struct OrderCell: View {
                         
                         Text(Constants.Strings.cancelOrder)
                             .font(.custom(Constants.AppFont.regularFont, size: 14))
-                            .foregroundColor(Color.cherryRed)
+                            .foregroundColor(.cherryRed)
                         
                     }
                     .frame(width: 130, height: 40, alignment: .center)
@@ -88,7 +88,7 @@ struct OrderCell: View {
                         
                         Text(Constants.Strings.shipOrder)
                             .font(.custom(Constants.AppFont.regularFont, size: 14))
-                            .foregroundColor(Color.defaultWhite)
+                            .foregroundColor(.defaultWhite)
                         
                     }
                     .frame(width: 130, height: 40, alignment: .center)

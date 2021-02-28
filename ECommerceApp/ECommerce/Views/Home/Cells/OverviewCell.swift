@@ -20,12 +20,12 @@ struct OverviewCell: View {
         VStack(alignment: .leading) {
             Text(overViewItem.name.uppercased())
                 .font(.custom(Constants.AppFont.regularFont, size: 12))
-                .foregroundColor(Color.warmGrey)
+                .foregroundColor(.warmGrey)
                 .padding(.bottom, 4)
             
             Text(overViewItem.value)
                 .font(.custom(Constants.AppFont.mediumFont, size: 24))
-                .foregroundColor(Color.darkBlack)
+                .foregroundColor(.darkBlack)
             
         }.frame(minWidth: 100, maxWidth: .infinity, minHeight: 64, maxHeight: .infinity, alignment: .leading)
         .padding(.all, Constants.padding)

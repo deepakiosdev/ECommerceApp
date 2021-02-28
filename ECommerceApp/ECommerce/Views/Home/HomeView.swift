@@ -57,18 +57,18 @@ private extension HomeView {
         VStack(alignment: .leading) {
             Text(viewModel.sharing?.title ?? "")
                 .font(.custom(Constants.AppFont.mediumFont, size: 14))
-                .foregroundColor(Color.darkBlack)
+                .foregroundColor(.darkBlack)
                 .padding(.bottom, 4)
 
             Text(viewModel.sharing?.description ?? "")
                 .font(.custom(Constants.AppFont.regularFont, size: 13))
-                .foregroundColor(Color.warmGrey)
+                .foregroundColor(.warmGrey)
                 .padding(.bottom, Constants.padding)
 
             HStack() {
                 Text(viewModel.sharing?.shareLink ?? "")
                     .font(.custom(Constants.AppFont.mediumFont, size: 14))
-                    .foregroundColor(Color.orange)
+                    .foregroundColor(.dustyOrange)
                 
                 Spacer()
                 

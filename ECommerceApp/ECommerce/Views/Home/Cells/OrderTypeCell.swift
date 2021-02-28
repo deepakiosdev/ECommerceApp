@@ -22,7 +22,7 @@ struct OrderTypeCell: View {
             
                 Text(name.capitalized + " (\(count))")
                     .font(.custom(Constants.AppFont.mediumFont, size: 14))
-                    .foregroundColor(isSelected ? Color.defaultWhite : Color.warmGrey)
+                    .foregroundColor(isSelected ? .defaultWhite : .warmGrey)
             }
             .frame(width: 125, height: 32, alignment: .center)
 

@@ -16,18 +16,18 @@ struct SharingView: View {
         VStack(alignment: .leading) {
             Text(sharing?.title ?? "")
                 .font(.custom(Constants.AppFont.mediumFont, size: 14))
-                .foregroundColor(Color.darkBlack)
+                .foregroundColor(.darkBlack)
                 .padding(.bottom, 4)
 
             Text(sharing?.description ?? "")
                 .font(.custom(Constants.AppFont.regularFont, size: 13))
-                .foregroundColor(Color.warmGrey)
+                .foregroundColor(.warmGrey)
                 .padding(.bottom, Constants.padding)
 
             HStack() {
                 Text(sharing?.shareLink ?? "")
                     .font(.custom(Constants.AppFont.mediumFont, size: 14))
-                    .foregroundColor(Color.dustyOrange)
+                    .foregroundColor(.dustyOrange)
                 
                 Spacer()
                 

@@ -18,7 +18,7 @@ struct OverviewView: View {
             HStack() {
                 Text(Constants.Strings.overview)
                     .font(.custom(Constants.AppFont.mediumFont, size: 16))
-                    .foregroundColor(Color.darkBlack)
+                    .foregroundColor(.darkBlack)
                 
                 Spacer()
                 
@@ -28,7 +28,7 @@ struct OverviewView: View {
                     
                     Text(Constants.Strings.lastWeek)
                         .font(.custom(Constants.AppFont.regularFont, size: 14))
-                        .foregroundColor(Color.warmGrey)
+                        .foregroundColor(.warmGrey)
                     
                     Image.init(Constants.Images.downArrow)
                 }

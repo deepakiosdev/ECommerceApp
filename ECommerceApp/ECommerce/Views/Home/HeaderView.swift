@@ -23,9 +23,9 @@ struct HeaderView: View {
     }
 }
 
-extension HeaderView {
+private extension HeaderView {
     
-    fileprivate func headerBackgroundView() -> some View {
+    func headerBackgroundView() -> some View {
         
         return
             
