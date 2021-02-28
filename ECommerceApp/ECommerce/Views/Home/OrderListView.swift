@@ -9,8 +9,8 @@ import SwiftUI
 
 struct OrderListView: View {
 
-    let orders: Orders?
-    
+    @ObservedObject var viewModel = HomeViewModel()
+
     var body: some View {
        
         VStack(alignment: .leading) {
@@ -36,7 +36,7 @@ struct OrderListView: View {
             OrderTypeListView()
             .padding(.top, Constants.padding)
             
-            OrdersListView(.Accepted)
+            OrdersListView(viewModel.orderStatus ?? .Accepted)
             .padding(.top, Constants.padding)
         }
     }
@@ -51,20 +51,21 @@ private extension OrderListView {
             ScrollView(.horizontal, showsIndicators: false, content: {
                 HStack(spacing: 16) {
                     
-                    if let pendingOrders = orders?.pendingOrders, pendingOrders.count > 0 {
-                        OrderTypeCell.init(name: Constants.Strings.pending, count: pendingOrders.count, isSelected: false).onTapGesture {
+                    if let pendingOrders = viewModel.orders?.pendingOrders, pendingOrders.count > 0 {
+                        OrderTypeCell.init(name: Constants.Strings.pending, count: pendingOrders.count, isSelected: viewModel.orderStatus == .Pending).onTapGesture {
                             print("pendingOrders clicked")
                         }
                     }
                     
-                    if let acceptedOrders = orders?.acceptedOrders, acceptedOrders.count > 0 {
-                        OrderTypeCell.init(name: Constants.Strings.accepted, count: acceptedOrders.count, isSelected: true).onTapGesture {
+                    if let acceptedOrders = viewModel.orders?.acceptedOrders, acceptedOrders.count > 0 {
+                        OrderTypeCell.init(name: Constants.Strings.accepted, count: acceptedOrders.count, isSelected: viewModel.orderStatus == .Accepted).onTapGesture {
                             print("acceptedOrders clicked")
+
                         }
                     }
                     
-                    if let shippedOrders = orders?.shippedOrders, shippedOrders.count > 0 {
-                        OrderTypeCell.init(name: Constants.Strings.shipped, count: shippedOrders.count, isSelected: false).onTapGesture {
+                    if let shippedOrders = viewModel.orders?.shippedOrders, shippedOrders.count > 0 {
+                        OrderTypeCell.init(name: Constants.Strings.shipped, count: shippedOrders.count, isSelected: viewModel.orderStatus == .Shipped).onTapGesture {
                             print("shippedOrders clicked")
                         }
                     }
@@ -82,17 +83,17 @@ private extension OrderListView {
                     switch selectedOrderType {
                     case .Pending :
                         
-                        if let orders = orders?.pendingOrders, orders.count > 0 {
+                        if let orders = viewModel.orders?.pendingOrders, orders.count > 0 {
                             ForEach(orders, content: OrderCell.init(order: ))
                         }
                         
                     case .Accepted :
-                        if let orders = orders?.acceptedOrders, orders.count > 0 {
+                        if let orders = viewModel.orders?.acceptedOrders, orders.count > 0 {
                             ForEach(orders, content: OrderCell.init(order: ))
                         }
                         
                     case .Shipped :
-                        if let orders = orders?.shippedOrders, orders.count > 0 {
+                        if let orders = viewModel.orders?.shippedOrders, orders.count > 0 {
                             ForEach(orders, content: OrderCell.init(order: ))
                         }
                     }

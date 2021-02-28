@@ -14,7 +14,8 @@ class HomeViewModel: ObservableObject {
     @Published var sharing: Sharing?
     @Published var orders: Orders?
     @Published var overview: Overview?
-    
+    @Published var orderStatus: OrderStatus?
+
     private var disposables = Set<AnyCancellable>()
     
     init() {
@@ -24,28 +25,29 @@ class HomeViewModel: ObservableObject {
     private func loadData() {
         
         if let result = try? Sharing.fromJSON(String(describing: Sharing.self)) as Sharing? {
-                sharing = result
+            sharing = result
+        }
+        
+        if let result = try? Overview.fromJSON(String(describing: Overview.self)) as Overview? {
+            overview = result
+        }
+        
+        if let result = try? Orders.fromJSON(String(describing: Orders.self)) as Orders? {
+            
+            var tempOrders = result
+            
+            if let pendingOrder = result.pendingOrders.first {
+                tempOrders.pendingOrders = Array.init(repeating: pendingOrder, count: 129)
             }
             
-            if let result = try? Overview.fromJSON(String(describing: Overview.self)) as Overview? {
-                overview = result
+            if let shippedOrder = result.shippedOrders.first {
+                tempOrders.shippedOrders = Array.init(repeating: shippedOrder, count: 22)
             }
-
-            if let result = try? Orders.fromJSON(String(describing: Orders.self)) as Orders? {
-
-                var tempOrders = result
-                
-                if let pendingOrder = result.pendingOrders.first {
-                    tempOrders.pendingOrders = Array.init(repeating: pendingOrder, count: 129)
-                }
-                
-                if let shippedOrder = result.shippedOrders.first {
-                    tempOrders.shippedOrders = Array.init(repeating: shippedOrder, count: 22)
-                }
-                orders = tempOrders
-
-            }
+            orders = tempOrders
+            orderStatus = .Accepted
             
+        }
+        
     }
 
 }

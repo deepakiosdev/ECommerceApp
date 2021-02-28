@@ -39,7 +39,7 @@ struct HomeView: View {
                                 .padding(.trailing, Constants.padding)
                                 .padding(.bottom, Constants.padding)
 
-                           OrderListView.init(orders: viewModel.orders)
+                            OrderListView.init(viewModel: viewModel)
                                 .padding(Constants.padding)
                         }
 
