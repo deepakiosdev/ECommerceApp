@@ -25,19 +25,24 @@ class HomeViewModel: ObservableObject {
         
         if let result = try? Sharing.fromJSON(String(describing: Sharing.self)) as Sharing? {
                 sharing = result
-                print("sharing----:\(String(describing: sharing))")
-    
             }
             
             if let result = try? Overview.fromJSON(String(describing: Overview.self)) as Overview? {
                 overview = result
-                print("overviewList----:\(String(describing: overview))")
-    
             }
 
             if let result = try? Orders.fromJSON(String(describing: Orders.self)) as Orders? {
-                orders = result
-                print("orders----:\(String(describing: orders))")
+
+                var tempOrders = result
+                
+                if let pendingOrder = result.pendingOrders.first {
+                    tempOrders.pendingOrders = Array.init(repeating: pendingOrder, count: 129)
+                }
+                
+                if let shippedOrder = result.shippedOrders.first {
+                    tempOrders.shippedOrders = Array.init(repeating: shippedOrder, count: 22)
+                }
+                orders = tempOrders
 
             }
             

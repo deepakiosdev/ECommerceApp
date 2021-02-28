@@ -36,7 +36,7 @@ struct OrderListView: View {
             OrderTypeListView()
             .padding(.top, Constants.padding)
             
-            OrdersListView()
+            OrdersListView(.Accepted)
             .padding(.top, Constants.padding)
         }
     }
@@ -52,29 +52,49 @@ private extension OrderListView {
                 HStack(spacing: 16) {
                     
                     if let pendingOrders = orders?.pendingOrders, pendingOrders.count > 0 {
-                        OrderTypeCell.init(name: Constants.Strings.pending, count: "129", isSelected: false)
+                        OrderTypeCell.init(name: Constants.Strings.pending, count: pendingOrders.count, isSelected: false).onTapGesture {
+                            print("pendingOrders clicked")
+                        }
                     }
                     
                     if let acceptedOrders = orders?.acceptedOrders, acceptedOrders.count > 0 {
-                        OrderTypeCell.init(name: Constants.Strings.accepted, count: "13", isSelected: true)
+                        OrderTypeCell.init(name: Constants.Strings.accepted, count: acceptedOrders.count, isSelected: true).onTapGesture {
+                            print("acceptedOrders clicked")
+                        }
                     }
                     
                     if let shippedOrders = orders?.shippedOrders, shippedOrders.count > 0 {
-                        OrderTypeCell.init(name: Constants.Strings.shipped, count: "22", isSelected: false)
+                        OrderTypeCell.init(name: Constants.Strings.shipped, count: shippedOrders.count, isSelected: false).onTapGesture {
+                            print("shippedOrders clicked")
+                        }
                     }
                 }
             })
     }
     
     
-    func OrdersListView() -> some View {
+    func OrdersListView(_ selectedOrderType: OrderStatus) -> some View {
         
         return
             ScrollView(.vertical, showsIndicators: false, content: {
                 VStack(spacing: 12) {
                     
-                    if let orders = orders?.acceptedOrders, orders.count > 0 {
-                        ForEach(orders, content: OrderCell.init(order: ))
+                    switch selectedOrderType {
+                    case .Pending :
+                        
+                        if let orders = orders?.pendingOrders, orders.count > 0 {
+                            ForEach(orders, content: OrderCell.init(order: ))
+                        }
+                        
+                    case .Accepted :
+                        if let orders = orders?.acceptedOrders, orders.count > 0 {
+                            ForEach(orders, content: OrderCell.init(order: ))
+                        }
+                        
+                    case .Shipped :
+                        if let orders = orders?.shippedOrders, orders.count > 0 {
+                            ForEach(orders, content: OrderCell.init(order: ))
+                        }
                     }
                     
                 }

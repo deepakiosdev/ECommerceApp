@@ -22,9 +22,9 @@ enum OrderPaymentStatus: String {
 
 struct Orders: Codable {
     
-    let pendingOrders: [Order]
-    let acceptedOrders: [Order]
-    let shippedOrders: [Order]
+    var pendingOrders: [Order]
+    var acceptedOrders: [Order]
+    var shippedOrders: [Order]
 }
 
 struct Order: Codable, Identifiable {
@@ -34,7 +34,7 @@ struct Order: Codable, Identifiable {
     let quanitity: Int
     let price: String
     let dateAndTime: String
-    let paymentStatus: String
+    var paymentStatus: String
     let imageName: String
     let status: String
 

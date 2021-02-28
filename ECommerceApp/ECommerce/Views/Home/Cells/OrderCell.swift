@@ -50,14 +50,21 @@ struct OrderCell: View {
                 Spacer()
                 
                 let color = Color.paymentStatusColor(for: OrderPaymentStatus(rawValue: order.paymentStatus) ?? OrderPaymentStatus.Paid)
-              
-                Text(order.paymentStatus.uppercased())
-                    .font(.custom(Constants.AppFont.regularFont, size: 14))
-                    .bold()
-                    .foregroundColor(color)
-                    .background(color).opacity(0.4)
-                    .frame(width: 60, height: 30, alignment: .center)
-                    .cornerRadius(3.0)
+                
+                Button(action: {
+                    
+                }) {
+                
+                    Text(order.paymentStatus.uppercased())
+                        .font(.custom(Constants.AppFont.regularFont, size: 14))
+                        .bold()
+                        .foregroundColor(color)
+                    
+                }
+                .frame(width: 60, height: 30, alignment: .center)
+                .allowsHitTesting(false)
+                .background(color).opacity(0.4)
+                .cornerRadius(3.0)
             }
             
             

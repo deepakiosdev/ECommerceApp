@@ -10,7 +10,7 @@ import SwiftUI
 struct OrderTypeCell: View {
     
     let name: String
-    let count: String
+    let count: Int
     let isSelected: Bool
 
     
@@ -25,7 +25,6 @@ struct OrderTypeCell: View {
                     .foregroundColor(isSelected ? .defaultWhite : .warmGrey)
             }
             .frame(width: 125, height: 32, alignment: .center)
-
         }
         .background(isSelected ? Color.niceBlue : Color.whiteTwo)
         .cornerRadius(16)
