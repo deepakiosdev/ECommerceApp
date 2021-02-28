@@ -23,13 +23,13 @@ struct HomeView: View {
                    // .frame(width: geometry.size.width, height: geometry.size.height * 0.2)
                     ScrollView () {
                         OverviewView.init(overview: viewModel.overview)
-                        //.padding(.all, 16)
+                        .padding(.all, 16)
 
 
                         OrderListView.init(orders: viewModel.orders)
                         //.padding(.all, 16)
                     }
-                    .padding(.all, 16)
+                    //.padding(.all, 16)
 
                 }
 

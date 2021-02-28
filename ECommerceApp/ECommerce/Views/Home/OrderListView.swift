@@ -31,11 +31,10 @@ struct OrderListView: View {
                     
                     Image.init(Constants.Images.rightArrow)
                 }
-            }
-            //.padding(.all, 20)
+            }.padding(16)
             
             orderTypeListView
-            //.padding(.leading, 32)
+            .padding(.leading, 16)
 
 
         }
