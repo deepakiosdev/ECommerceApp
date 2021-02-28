@@ -40,7 +40,9 @@ extension HeaderView {
                 Spacer()
                 
             }
-            .padding(.all, 16)
+            .padding(.leading, Constants.padding)
+            .padding(.top, Constants.padding)
+
     }
     
     

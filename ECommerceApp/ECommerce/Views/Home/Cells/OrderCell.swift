@@ -31,7 +31,6 @@ struct OrderCell: View {
                      .foregroundColor(Color.warmGrey)
 
              }
-             
             
             HStack() {
                 
@@ -59,7 +58,6 @@ struct OrderCell: View {
                     .background(color).opacity(0.4)
                     .frame(width: 60, height: 30, alignment: .center)
                     .cornerRadius(3.0)
-                
             }
             
             
@@ -76,7 +74,7 @@ struct OrderCell: View {
                             .foregroundColor(Color.cherryRed)
                         
                     }
-                    .frame(width: 150, height: 40, alignment: .center)
+                    .frame(width: 130, height: 40, alignment: .center)
                     .overlay(
                         RoundedRectangle(cornerRadius: 6)
                             .stroke(Color.cherryRed, lineWidth: 1)
@@ -93,16 +91,16 @@ struct OrderCell: View {
                             .foregroundColor(Color.defaultWhite)
                         
                     }
-                    .frame(width: 150, height: 40, alignment: .center)
+                    .frame(width: 130, height: 40, alignment: .center)
                     .background(Color.dustyOrange)
                     .cornerRadius(6.0)
                 }
             }
         }
-        .padding(.all, 16)
+        .padding(.all, Constants.padding)
         .background(Color.defaultWhite)
         .cornerRadius(6)
-
+        .shadow(color: .darkBlack4, radius: 6, x: 0, y: 2)
         
     }
 }

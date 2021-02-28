@@ -28,9 +28,11 @@ struct OverviewCell: View {
                 .foregroundColor(Color.darkBlack)
             
         }.frame(minWidth: 100, maxWidth: .infinity, minHeight: 64, maxHeight: .infinity, alignment: .leading)
-        .padding(.all, 16)
+        .padding(.all, Constants.padding)
         .background(Color.defaultWhite)
         .cornerRadius(6)
+        .shadow(color: .darkBlack4, radius: 6, x: 0, y: 2)
+
     }
     
 }

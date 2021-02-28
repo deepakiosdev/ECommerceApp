@@ -12,6 +12,7 @@ import SwiftUI
 struct Constants {
 
     static let headerHeight: CGFloat = 200
+    static let padding: CGFloat = 16
 
     struct Strings {
         static let home = "Home"

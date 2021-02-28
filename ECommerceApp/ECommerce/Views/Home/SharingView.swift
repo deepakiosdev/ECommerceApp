@@ -22,7 +22,7 @@ struct SharingView: View {
             Text(sharing?.description ?? "")
                 .font(.custom(Constants.AppFont.regularFont, size: 13))
                 .foregroundColor(Color.warmGrey)
-                .padding(.bottom, 16)
+                .padding(.bottom, Constants.padding)
 
             HStack() {
                 Text(sharing?.shareLink ?? "")
@@ -42,6 +42,7 @@ struct SharingView: View {
         .padding(.all, 12)
         .background(Color.defaultWhite)
         .cornerRadius(6)
+        .shadow(color: .black6, radius: 6, x: 0, y: 1)
 
     }
 }

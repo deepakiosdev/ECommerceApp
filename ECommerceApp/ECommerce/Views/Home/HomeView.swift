@@ -23,26 +23,27 @@ struct HomeView: View {
                             HeaderView()
                                 .background(Color.niceBlue)
                                 .frame(width: geometry.size.width, height: Constants.headerHeight)
-                            
-                            
+
+
                             SharingView.init(sharing: viewModel.sharing)
                                 .padding()
                                 .offset(y: Constants.headerHeight/2 )
-                            
+
                         }
                         .offset(y: -Constants.headerHeight/2)
                         
                         
                         ScrollView() {
                             OverviewView.init(overview: viewModel.overview)
-                                .padding(.top, 0)
-                            OrderListView.init(orders: viewModel.orders)
-                                .padding(.top, 32)
-                        }.padding(16)
-                        .offset(y: -32)
+                                .padding(.leading, Constants.padding)
+                                .padding(.trailing, Constants.padding)
+                                .padding(.bottom, Constants.padding)
 
-                    }.padding(16)
-                    
+                           OrderListView.init(orders: viewModel.orders)
+                                .padding(Constants.padding)
+                        }
+
+                    }                    
                 )
         }
     }
@@ -62,7 +63,7 @@ private extension HomeView {
             Text(viewModel.sharing?.description ?? "")
                 .font(.custom(Constants.AppFont.regularFont, size: 13))
                 .foregroundColor(Color.warmGrey)
-                .padding(.bottom, 16)
+                .padding(.bottom, Constants.padding)
 
             HStack() {
                 Text(viewModel.sharing?.shareLink ?? "")

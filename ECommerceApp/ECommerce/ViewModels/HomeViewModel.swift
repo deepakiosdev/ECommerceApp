@@ -14,7 +14,6 @@ class HomeViewModel: ObservableObject {
     @Published var sharing: Sharing?
     @Published var orders: Orders?
     @Published var overview: Overview?
-    @Published var activeOrders: ActiveOrders?
     
     private var disposables = Set<AnyCancellable>()
     
@@ -34,12 +33,6 @@ class HomeViewModel: ObservableObject {
                 overview = result
                 print("overviewList----:\(String(describing: overview))")
     
-            }
-
-    
-            if let result = try? ActiveOrders.fromJSON(String(describing: ActiveOrders.self)) as ActiveOrders? {
-                activeOrders = result
-                print("activeOrders----:\(String(describing: activeOrders))")
             }
 
             if let result = try? Orders.fromJSON(String(describing: Orders.self)) as Orders? {

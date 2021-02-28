@@ -34,10 +34,10 @@ struct OrderListView: View {
             }
             
             OrderTypeListView()
-            .padding(.top, 16)
+            .padding(.top, Constants.padding)
             
             OrdersListView()
-            .padding(.top, 16)
+            .padding(.top, Constants.padding)
         }
     }
 }
