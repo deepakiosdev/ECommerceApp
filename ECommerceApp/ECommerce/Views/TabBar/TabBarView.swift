@@ -8,55 +8,67 @@
 import SwiftUI
 
 struct TabBarView: View {
-
+    
     @State var selected = 0
     
+    init() {
+        UITabBar.appearance().backgroundColor = .white
+    }
+    
+    
     var body: some View {
-
-        ZStack {
-            TabView(selection: $selected) {
-                HomeView()
-                    .tabItem {
-                        Image(Constants.Images.iconTabbarHomeActive)
-                        Text(Constants.Strings.home)
-                }.tag(0)
-                
-                OrdersView()
-                    .tabItem {
-                        Image(Constants.Images.iconTabbarOrdersInactive)
-                        Text(Constants.Strings.orders)
-                }.tag(1)
-                
-                ProductsView()
-                    .tabItem {
-                        Image(Constants.Images.iconTabbarProductsInactive)
-                        Text(Constants.Strings.products)
-                }.tag(2)
-                
-                MarketingView()
-                    .tabItem {
-                        Image(Constants.Images.iconTabbarMarketingInactive)
-                        Text(Constants.Strings.marketing)
-                }.tag(3)
-                
-                AccountView()
-                    .tabItem {
-                        Image(Constants.Images.iconTabbarAccountInactive)
-                        Text(Constants.Strings.account)
-                }.tag(4)
-                
-            }
-            .accentColor(.niceBlue)
-
+        GeometryReader { geometry in
+            Color.niceBlue
+                .ignoresSafeArea(.all)
+                .overlay(
+                    VStack {
+                        HeaderView()
+                            .frame(width: geometry.size.width, height: geometry.size.height * 0.15)
+                        
+                       tabBarView
+                    })
         }
-        .navigationBarTitle("")
-        .navigationBarHidden(true)
-        .navigationBarBackButtonHidden(true)
-
+        
     }
 }
 
-
+private extension TabBarView {
+    var tabBarView: some View {
+        TabView(selection: $selected) {
+            HomeView()
+                .tabItem {
+                    Image(Constants.Images.iconTabbarHomeActive)
+                    Text(Constants.Strings.home)
+                }.tag(0)
+            
+            OrdersView()
+                .tabItem {
+                    Image(Constants.Images.iconTabbarOrdersInactive)
+                    Text(Constants.Strings.orders)
+                }.tag(1)
+            
+            ProductsView()
+                .tabItem {
+                    Image(Constants.Images.iconTabbarProductsInactive)
+                    Text(Constants.Strings.products)
+                }.tag(2)
+            
+            MarketingView()
+                .tabItem {
+                    Image(Constants.Images.iconTabbarMarketingInactive)
+                    Text(Constants.Strings.marketing)
+                }.tag(3)
+            
+            AccountView()
+                .tabItem {
+                    Image(Constants.Images.iconTabbarAccountInactive)
+                    Text(Constants.Strings.account)
+                }.tag(4)
+            
+        }
+        .accentColor(.niceBlue)
+    }
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

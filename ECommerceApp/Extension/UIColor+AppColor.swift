@@ -17,6 +17,11 @@ extension Color {
     static let dustyOrange = Color.init(Constants.Colors.dustyOrange)
     static let niceBlue = Color.init(Constants.Colors.niceBlue)
     static let warmGrey = Color.init(Constants.Colors.warmGrey)
-    static let white = Color.init(Constants.Colors.white)
+    static let whiteBackground = Color.init(Constants.Colors.white)
     static let whiteTwo = Color.init(Constants.Colors.whiteTwo)
+
+    
+    
+    static let defaultWhite = Color.white
+
 }

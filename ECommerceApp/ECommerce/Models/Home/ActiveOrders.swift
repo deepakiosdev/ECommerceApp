@@ -12,8 +12,8 @@ struct ActiveOrders: Codable {
 }
 
 
-struct ActiveOrderItem: Codable {
-    
+struct ActiveOrderItem: Codable, Identifiable {
+    let id = UUID()
     let name: String
     let count: String
     let sequence: Int

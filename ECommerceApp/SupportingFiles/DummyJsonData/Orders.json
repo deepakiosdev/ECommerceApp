@@ -1,12 +1,14 @@
 {
-  
-    "orders": [
+
+    "pendingOrders": [
       {
         "orderId": "Order #281217",
         "quanitity": 1,
         "price": "₹79",
         "dateAndTime" : "Today, 11:11 PM",
-        "paymentStatus" : "COD"
+        "paymentStatus" : "COD",
+        "imageName" : "strawberry_shake",
+        "status" : "Pending"
 
       },
       {
@@ -14,8 +16,55 @@
         "quanitity": 1,
         "price": "₹79",
         "dateAndTime" : "Today, 11:11 PM",
-        "paymentStatus" : "PAID"
+        "paymentStatus" : "PAID",
+        "imageName" : "strawberry_shake",
+        "status" : "Pending"
+      }
+    ],
+
+    "acceptedOrders": [
+      {
+        "orderId": "Order #281217",
+        "quanitity": 1,
+        "price": "₹79",
+        "dateAndTime" : "Today, 11:11 PM",
+        "paymentStatus" : "COD",
+        "imageName" : "strawberry_shake",
+        "status" : "Accepted"
+
+
+      },
+      {
+        "orderId": "Order #281217",
+        "quanitity": 1,
+        "price": "₹79",
+        "dateAndTime" : "Today, 11:11 PM",
+        "paymentStatus" : "PAID",
+        "imageName" : "strawberry_shake",
+        "status" : "Accepted"
+
+      }
+    ],
+    
+    "shippedOrders": [
+      {
+        "orderId": "Order #281217",
+        "quanitity": 1,
+        "price": "₹79",
+        "dateAndTime" : "Today, 11:11 PM",
+        "paymentStatus" : "COD",
+        "imageName" : "strawberry_shake",
+        "status" : "Shipped"
+      },
+      {
+        "orderId": "Order #281217",
+        "quanitity": 1,
+        "price": "₹79",
+        "dateAndTime" : "Today, 11:11 PM",
+        "paymentStatus" : "PAID",
+        "imageName" : "strawberry_shake",
+        "status" : "Shipped"
       }
     ]
-
 }
+

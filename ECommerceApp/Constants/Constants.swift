@@ -17,6 +17,14 @@ struct Constants {
         static let marketing = "Marketing"
         static let products = "Products"
         static let orders = "Orders"
+        static let tagLine = "Mano Super Market"
+        static let overview = "Overview"
+        static let lastWeek = "Last Week"
+        static let activeOrders = "Active Orders"
+        static let viewAll = "View All"
+        static let pending = "Pending"
+        static let accepted = "Accepted"
+        static let shipped = "Shipped"
     }
     
     struct Images {
@@ -25,6 +33,12 @@ struct Constants {
         static let iconTabbarMarketingInactive = "iconsTabbarMarketingInactive"
         static let iconTabbarProductsInactive = "iconsTabbarProductsInactive"
         static let iconTabbarOrdersInactive = "iconsTabbarOrdersInactive"
+        static let downArrow = "iconsDownArrow"
+        static let rightArrow = "iconsRightArrow"
+        static let iconVerify = "iconsGlobalVerify"
+        static let strawBerryShake = "strawberry_shake"
+        static let whatsupShareIcon = "whatsup_share_icon"
+
     }
     
     struct Colors {

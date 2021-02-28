@@ -11,7 +11,7 @@ import Combine
 
 class HomeViewModel: ObservableObject {
     
-    @Published var homeHeader: HomeHeader?
+    @Published var sharing: Sharing?
     @Published var orders: Orders?
     @Published var overview: Overview?
     @Published var activeOrders: ActiveOrders?
@@ -24,15 +24,15 @@ class HomeViewModel: ObservableObject {
 
     private func loadData() {
         
-        if let result = try? HomeHeader.fromJSON(String(describing: HomeHeader.self)) as HomeHeader? {
-                homeHeader = result
-                print("HomeHeader----:\(String(describing: homeHeader))")
+        if let result = try? Sharing.fromJSON(String(describing: Sharing.self)) as Sharing? {
+                sharing = result
+                print("sharing----:\(String(describing: sharing))")
     
             }
             
             if let result = try? Overview.fromJSON(String(describing: Overview.self)) as Overview? {
                 overview = result
-                print("overview----:\(String(describing: overview))")
+                print("overviewList----:\(String(describing: overview))")
     
             }
 

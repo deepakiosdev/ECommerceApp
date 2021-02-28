@@ -9,11 +9,11 @@ import Foundation
 
 
 struct Overview: Codable {
-    let overview: [OverviewItem]
+    let overviewList: [OverviewItem]
 }
 
-struct OverviewItem: Codable {
-    
+struct OverviewItem: Codable, Identifiable {
+    let id = UUID()
     let name: String
     let value: String
     let sequence: Int
